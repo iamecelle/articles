@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+	
 
+	<h2>Title: {{$article->title}}</h2>
 	@if(count($errors))
 		<div class="alert alert-danger">
 			@foreach($errors->all() as $error)
@@ -10,7 +12,7 @@
 		</div>
 	@endif
 
-	{!! Form::open() !!}
+	{!! Form::open(['method' => 'put']) !!}
 
 		{!! Form::label('title', 'Title') !!}
 		{!! Form::text('title', $article->title, ['class' => 'form-control', 'placeholder' => 'ex. Article Title']) !!}
