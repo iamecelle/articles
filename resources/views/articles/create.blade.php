@@ -2,9 +2,16 @@
 
 @section('content')
 
-	@include('articles._error')
+	@if(count($errors))
+		<div class="alert alert-danger">
+			@foreach($errors->all() as $error)
+				{{ $error }} <br>
+			@endforeach
+		</div>
+	@endif
 
 	{!! Form::open(['url' => 'articles']) !!}
+
 
 		{!! Form::label('title', 'Title') !!}
 		{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'ex. Article Title']) !!}
